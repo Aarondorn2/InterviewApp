@@ -91,7 +91,8 @@ h4 {
 	z-index: 999999;
 }
 
-#final-score {
+.final-score {
+  font-size: 1.5em;
   position: relative;
   top: 50%;
   transform: translateY(-50%);

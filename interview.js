@@ -26,7 +26,7 @@ let interviewApp = {
   	
   	if (interviewApp.lives === 0) {
       clearInterval(interviewApp.interval);
-  		$('#final-score span').html(interviewApp.score);
+  		$('#final-score-text').html(`Final score: ${interviewApp.score}`);
   		$('#game-over').show();
   	} else {
       for (i = 0; i < 5; i++) {
