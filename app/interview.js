@@ -1,50 +1,58 @@
-const popupWindow = '<div class="popup-window"><div class="popup-window-menu"><span class="popup-window-close">x</span></div><img src="http://cdn.healthcaresource.com/assets/svg/hcs-horizontal.svg"></div>';
+const popupWindow = '<div class="popup-window"><div class="popup-window-menu"><span class="popup-window-close">x</span></div><img src="interview.svg"></div>';
 
 let interviewApp = {
-  score: 0,
+  isRunning: false,
   lives: 3,
+  score: 0,
   zIndex: 1,
-  windowWidth: 0,
-  windowHeight: 0,
 
   interval: null,
 
   addPopupWindow() {
-    let top = Math.floor((Math.random() * interviewApp.windowHeight));
-    let left = Math.floor((Math.random() * interviewApp.windowWidth));
+    let left = `${Math.floor((Math.random() * 75))}vw`;
+    let top = `${Math.floor((Math.random() * 90))}vh`;
+    let zIndex = ++interviewApp.zIndex;
 
-    $('.container').append(popupWindow);
-    $('.popup-window').last()
-      .css('z-index', interviewApp.zIndex++ + 1)
-      .css('top', top + 'px')
-      .css('left', left + 'px');
+    let popup = $(popupWindow).css({ left, top, zIndex });
+    $('.container').append(popup);
 
     interviewApp.writeScore(--interviewApp.score);
   },
+  close(e) {
+    e.stopPropagation();
+    $(this).parent().parent().hide();
+    interviewApp.writeScore(++interviewApp.score);
+  },
   missClick() {
+    if (!interviewApp.isRunning) return;
     interviewApp.removeLife();
-  	
-  	if (interviewApp.lives === 0) {
+    
+    if (interviewApp.lives === 0) {
+      interviewApp.isRunning = false;
       clearInterval(interviewApp.interval);
-  		$('#final-score-text').html(`Final score: ${interviewApp.score}`);
-  		$('#game-over').show();
-  	} else {
+      $('#final-score-text').html(`Final score: ${interviewApp.score}`);
+      $('#game-over').show();
+    } else {
       for (i = 0; i < 5; i++) {
         interviewApp.addPopupWindow();
       }
     }
   },
   removeLife() {
-		let hearts = "";
+    let hearts = '';
     interviewApp.lives--;
-		for (i = 0; i < interviewApp.lives; i++) {
-			hearts += "♥️ ";
-		}
-		$('#lives').html(hearts);
+    for (i = 0; i < interviewApp.lives; i++) {
+      hearts += '♥️ ';
+    }
+    $('#lives').html(hearts);
   },
-  start() {
-  	$('.intro').hide();
-  	$('body').append('<div id="bg"></div>');
+  restart() {
+    location.reload();
+  },
+  start(e) {
+    e.stopPropagation();
+    $('.intro').hide();
+    interviewApp.isRunning = true;
 
     interviewApp.interval = setInterval(interviewApp.addPopupWindow, 750);
   },
@@ -54,18 +62,9 @@ let interviewApp = {
 };
 
 $(document).ready(function() {
-  interviewApp.windowWidth = $(window).width() - 400;
-  interviewApp.windowHeight = $(window).height() + 400; 
-
   $('#start').on('click', interviewApp.start);
-	$('#restart').on('click', function() { location.reload(); });
+  $('#restart').on('click', interviewApp.restart);
 
-
-	$('body').on('click', '#bg', interviewApp.missClick);
-	$('body').on('click', '.popup-window', interviewApp.missClick);
-	$('body').on('click', '.popup-window-close', function(e) {
-    e.stopPropagation();
-		$(this).parent().parent().hide();
-		interviewApp.writeScore(++interviewApp.score);
-	});
+  $('body').on('click', interviewApp.missClick);
+  $('body').on('click', '.popup-window-close', interviewApp.close);
 });

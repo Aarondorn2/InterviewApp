@@ -1,94 +1,89 @@
-html, body {
-	height: 100%;
+html {
+  height: 100%;
 }
 
 .container {
-	height: 100%;
-	position: relative;
+  height: 100%;
+  position: relative;
 }
 
 body {
-	font-family: sans-serif;
-	text-align: center;
-	overflow: hidden;
-	position: relative;
-	background-color: whitesmoke;
-	font-size: 16pt;
-	margin: 0;
+  height: 100%;
+  font-family: sans-serif;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  background-color: whitesmoke;
+  font-size: 16pt;
+  margin: 0;
 }
 
 h4 {
-	color: #777;
+  color: #777;
 }
 
 .intro {
   position: relative;
-  top: 40%;
-  transform: translateY(-50%);
+  top: 15%;
 }
 
 .popup-window {
-	position: absolute;
-	background-color: white;
-	border: 1px solid lightgrey;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	min-width: 150px;
-}
-.popup-window img {
-	padding: 5px;
-}
-.popup-window-menu {
-	height: 20px;
-	background-color: lightgrey;
-	padding: 2px;
-}
-.popup-window-close {
-	color: black;
-	background-color: #FF6868;
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
-	line-height: 15px;
-	float: right;
-	cursor: pointer;
-	font-size: small;
-	font-weight: 700;
+  position: absolute;
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  min-width: 150px;
 }
 
-#bg {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
+.popup-window img {
+  padding: 5px;
+}
+
+.popup-window-menu {
+  height: 20px;
+  background-color: lightgrey;
+  padding: 2px;
+}
+
+.popup-window-close {
+  color: black;
+  background-color: #FF6868;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  line-height: 15px;
+  float: right;
+  cursor: pointer;
+  font-size: small;
+  font-weight: 700;
 }
 
 .score-box {
-	background-color: rgba(0, 0, 0, 0.8);
-	border-radius: 5px;
-	position: absolute;
-	bottom: 20px;
-	left: 20px;
-	color: white;
-	font-size: 1em;
-	padding: 20px;
-	z-index: 999999;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 1em;
+  padding: 20px;
+  z-index: 999999;
 }
 
 #lives {
-	color: #FF6868;
+  color: #FF6868;
 }
 
 #game-over {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.8);
-	display: none;
-	z-index: 999999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 999999;
 }
 
 .final-score {
@@ -96,28 +91,28 @@ h4 {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-	color: white;
+  color: white;
 }
 
 .btn {
-	padding: 0.5em 1.5em;
-	font-size: 1.5em;
-	margin: 30px;
-	color: #fff;
-	background-color: #5cb85c;
-	border-color: #4cae4c;
-	
-	display: inline-block;
-	margin-bottom: 0;
-	font-weight: 400;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	touch-action: manipulation;
-	cursor: pointer;
-	background-image: none;
-	border: 1px solid transparent;
-	line-height: 1.42857143;
-	border-radius: 4px;
-	user-select: none;
+  padding: 0.5em 1.5em;
+  font-size: 1.5em;
+  margin: 30px;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  user-select: none;
 }
