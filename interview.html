@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interview App</title>
+    <link rel="stylesheet" type="text/css" href="interview.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script src="interview.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="intro">
+        <h1>Interview App</h1>
+        <h4>Gain points when you close windows.</h4>
+        <h4>Lose points when you don't.</h4>
+        <br>
+        <h3><strong><u>Objective: Get a positive score.</u></strong></h3>
+        <button class="btn" id='start'>Start</button>
+      </div>
+    </div>
+    <div class="score-box">
+      <div id="lives">♥️ ♥️ ♥️️</div>
+      <div>Score: <span id="score">0</span></div>
+    </div>
+    <div id="game-over">
+      <div id="final-score">Final score: <span></span><br>
+      <button class="btn" id='restart'>Restart Game</button>
+      </div>
+    </div>
+  </body>
+</html>
