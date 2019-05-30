@@ -12,10 +12,8 @@ body {
   font-family: sans-serif;
   text-align: center;
   overflow: hidden;
-  position: relative;
   background-color: whitesmoke;
   font-size: 16pt;
-  margin: 0;
 }
 
 h4 {
@@ -34,10 +32,12 @@ h4 {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   min-width: 150px;
+  max-width: 530px;
 }
 
 .popup-window img {
-  padding: 5px;
+	width: 100%;
+	height: auto;
 }
 
 .popup-window-menu {

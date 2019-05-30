@@ -1,4 +1,4 @@
-const popupWindow = '<div class="popup-window"><div class="popup-window-menu"><span class="popup-window-close">x</span></div><img src="interview.svg"></div>';
+const popupWindow = '<div class="popup-window"><div class="popup-window-menu"><span class="popup-window-close">x</span></div><img src="https://cataas.com/cat?"></div>';
 
 let interviewApp = {
   isRunning: false,
@@ -13,14 +13,14 @@ let interviewApp = {
     let top = `${Math.floor((Math.random() * 90))}vh`;
     let zIndex = ++interviewApp.zIndex;
 
-    let popup = $(popupWindow).css({ left, top, zIndex });
+    let popup = $(popupWindow.replace('?', `?${zIndex}`)).css({ left, top, zIndex });
     $('.container').append(popup);
 
     interviewApp.writeScore(--interviewApp.score);
   },
   close(e) {
     e.stopPropagation();
-    $(this).parent().parent().hide();
+    $(this).parent().parent().remove();
     interviewApp.writeScore(++interviewApp.score);
   },
   missClick() {
