@@ -1,6 +1,7 @@
 const popupWindow = '<div class="popup-window"><div class="popup-window-menu"><span class="popup-window-close">x</span></div><img src="https://cataas.com/cat?"></div>';
 
 let interviewApp = {
+  addPopup: true,
   isRunning: false,
   lives: 3,
   score: 0,
@@ -9,11 +10,13 @@ let interviewApp = {
   interval: null,
 
   addPopupWindow() {
+    if (!interviewApp.addPopup) return;
+
     let left = `${Math.floor((Math.random() * 75))}vw`;
     let top = `${Math.floor((Math.random() * 90))}vh`;
     let zIndex = ++interviewApp.zIndex;
 
-    let popup = $(popupWindow.replace('?', `?${zIndex}`)).css({ left, top, zIndex });
+    let popup = $(popupWindow.replace('?', `?${zIndex % 60}`)).css({ left, top, zIndex });
     $('.container').append(popup);
 
     interviewApp.writeScore(--interviewApp.score);
@@ -54,7 +57,10 @@ let interviewApp = {
     $('.intro').hide();
     interviewApp.isRunning = true;
 
-    interviewApp.interval = setInterval(interviewApp.addPopupWindow, 750);
+    interviewApp.interval = setInterval(interviewApp.addPopupWindow, 1500);
+  },
+  stopPopups() {
+    interviewApp.addPopup = false;
   },
   writeScore(score) {
     $('#score').html(score);
